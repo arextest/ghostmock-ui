@@ -1,0 +1,1 @@
+docker build -t arexadmin01/ghostmock-ui:0.1.0  .  --build-arg http_proxy=http://ntproxy.qa.nt.ctripcorp.com:8080 --build-arg https_proxy=http://ntproxy.qa.nt.ctripcorp.com:8080 
