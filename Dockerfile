@@ -4,11 +4,12 @@ FROM node:18.14.2-alpine3.17
 WORKDIR /usr/src/app
 COPY . .
 
-# RUN npm install  --loglevel verbose
-# RUN npm run build
-RUN npm install pnpm -g
-RUN pnpm install  --loglevel verbose
-RUN pnpm run build
+RUN npm install vite -g
+RUN npm install  --loglevel verbose
+RUN npm run build
+# RUN npm install pnpm -g
+# RUN pnpm install  --loglevel verbose
+# RUN pnpm run build
 
 
 EXPOSE 3000

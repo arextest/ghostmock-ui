@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Button, message, Switch } from "antd";
-import ProForm, { ModalForm, ProFormText } from "@ant-design/pro-form";
-import { EditableProTable } from "@ant-design/pro-table";
+import { Button, message,  } from "antd";
+import ProForm, { ModalForm, ProFormText } from '@ant-design/pro-components;
+import { EditableProTable } from '@ant-design/pro-components;
 import { PlusOutlined } from "@ant-design/icons";
 
 import { ActionService } from "../../services/ActionService";
 
-import type { ProColumns } from "@ant-design/pro-table";
+import type { ProColumns } from "@ant-design/pro-components";
 import type {
   TypeAction,
   TypeVariableTypes,
@@ -34,7 +34,7 @@ const columns: ProColumns<TypeVariableTypes>[] = [
     title: "必需",
     dataIndex: "required",
     width: 64,
-    renderFormItem: (_, row) => (
+    renderFormItem: (_: any, row: any) => (
       <Switch
         checked={row.record?.required}
         onChange={(checked: boolean, event: Event) => {
@@ -55,7 +55,7 @@ const columns: ProColumns<TypeVariableTypes>[] = [
     title: "操作",
     valueType: "option",
     width: 120,
-    render: (text, record, _, action) => [
+    render: (text:any, record:any, _: any, action: any) => [
       <a
         key="editable"
         onClick={() => {
@@ -108,15 +108,15 @@ export default ({
           console.log("modalCancel");
         },
       }}
-      onFinish={async (values) => {
+      onFinish={async (values:any) => {
         console.log(values);
         console.log(record);
         if (!values.variableTypes) values.variableTypes = [];
         if (mode === "insert") {
-          await MockService.insertAction(values);
+          await ActionService.insertAction(values);
           message.success("创建成功");
         } else if (mode === "edit") {
-          await MockService.updateAction({
+          await ActionService.updateAction({
             ...values,
             id: record._id,
             createTime: record.createTime,
@@ -184,7 +184,7 @@ export default ({
           editable={{
             type: "multiple",
             editableKeys,
-            actionRender: (row, _, dom) => {
+            actionRender: (row:any, _:any, dom:any) => {
               return [dom.delete];
             },
             onChange: setEditableRowKeys,
