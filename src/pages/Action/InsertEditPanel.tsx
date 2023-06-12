@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, message,  } from "antd";
-import ProForm, { ModalForm, ProFormText } from '@ant-design/pro-components;
-import { EditableProTable } from '@ant-design/pro-components;
+import { Button, message, Switch } from "antd";
+import ProForm, { ModalForm, ProFormText } from "@ant-design/pro-components";
+import { EditableProTable } from "@ant-design/pro-components";
 import { PlusOutlined } from "@ant-design/icons";
 
 import { ActionService } from "../../services/ActionService";
@@ -37,9 +37,9 @@ const columns: ProColumns<TypeVariableTypes>[] = [
     renderFormItem: (_: any, row: any) => (
       <Switch
         checked={row.record?.required}
-        onChange={(checked: boolean, event: Event) => {
-          console.log(checked, event, row);
-        }}
+        // onChange={(checked: boolean, event: Event) => {
+        //   console.log(checked, event, row);
+        // }}
       />
     ),
   },
@@ -161,7 +161,7 @@ export default ({
         />
       </ProForm.Group>
 
-      <ProForm.Item
+      <ProForm.ProFormItem
         label="可选参数"
         name="variableTypes"
         trigger="onValuesChange"
@@ -190,7 +190,7 @@ export default ({
             onChange: setEditableRowKeys,
           }}
         />
-      </ProForm.Item>
+      </ProForm.ProFormItem>
     </ModalForm>
   );
 };
