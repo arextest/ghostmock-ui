@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install vite -g
 RUN npm install  --loglevel verbose --force
-RUN npm run build
+# RUN npm run build
 # RUN npm install pnpm -g
 # RUN pnpm install  --loglevel verbose
 # RUN pnpm run build
