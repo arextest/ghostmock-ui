@@ -26,7 +26,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: apiKey ? apiKey : "http://10.5.153.1:8080",
+        target: "http://10.5.153.1:8080",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/"),
       },
